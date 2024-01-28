@@ -6,8 +6,8 @@ Repository materi pembelajaran member Divisi Internet of Things AMCC 2023/2024
 
 | Pertemuan | Judul Materi                                     | Link Modul                                                | Link GitHub                                               |
 |------------|--------------------------------------------------|-----------------------------------------------------------|-----------------------------------------------------------|
-| 1          | Bekerja dengan Git                              | [Link Modul 1](https://medium.com/amcc-amikom/bekerja-dengan-git-a4529404d935)                                      |                                                           |
-| 2          | Dasar Dart                                      | [Link Modul 2](https://medium.com/amcc-amikom/dasar-dart-8ed608605295)                                               |                                                           |
+| 1          | Bekerja dengan Git                              | [Link Modul 1](https://medium.com/amcc-amikom/bekerja-dengan-git-a4529404d935)||
+| 2          | Dasar Dart                                      | [Link Modul 2](https://medium.com/amcc-amikom/dasar-dart-8ed608605295)| [Link github 2](https://github.com/amccamikom/amcc-mobile-2023.git) |
 | 3          | Collections & Function                          | Null                                                      | Null                                                      |
 | 4          | OOP pada Dart 1                                 | Null                                                      | Null                                                      |
 | 5          | OOP pada Dart 2                                 |                                                           |                                                           |
