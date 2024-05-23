@@ -42,108 +42,68 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false, // Prevents the automatic back button
-        backgroundColor: backgroundColor2,
-        title: Row(
+      backgroundColor: backgroundColor2,
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           children: [
-            Text(
-              'Hai,',
-              style: whiteTextStyle.copyWith(
-                fontSize: 16,
-              ),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Text(
-              'Auliah',
-              style: whiteTextStyle.copyWith(
-                fontSize: 16,
-              ),
-            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Image.asset('assets/ic_profile.png'),
+                const SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  'Halo,\nDifa Dlyaulhaq',
+                  style: blackTextStyle.copyWith(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                const Row(
+                  children: [
+                    Icon(
+                      Icons.search,
+                      size: 32,
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Icon(
+                      Icons.notifications,
+                      size: 32,
+                    ),
+                  ],
+                )
+              ],
+            )
           ],
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications),
-            onPressed: () {
-              // Define the action to be performed on button press
-            },
-          ),
-        ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-            horizontal: 20), // Added horizontal padding
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'kasih Info Disini',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black,
-                ),
+      bottomNavigationBar: ValueListenableBuilder<int>(
+        valueListenable: _selectedIndexNotifier,
+        builder: (context, value, child) {
+          return BottomNavigationBar(
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home',
               ),
-              const SizedBox(height: 10),
-              TextField(
-                decoration: InputDecoration(
-                  hintText: 'Search...',
-                  prefixIcon: const Icon(Icons.search),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: Colors.grey),
-                  ),
-                ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.qr_code),
+                label: 'QR',
               ),
-              const SizedBox(height: 20),
-              Center(
-                child: Text(
-                  'Menu',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              Wrap(
-                spacing: 10,
-                runSpacing: 10,
-                alignment: WrapAlignment.center,
-                runAlignment: WrapAlignment.center,
-                children: [
-                  buildMenuButton('Pinjam Buku', Icons.book),
-                  buildMenuButton('Buku Aktif', Icons.bookmark),
-                  buildMenuButton('Riwayat Pinjaman', Icons.history),
-                  buildMenuButton('Pinjam Ruangan', Icons.meeting_room),
-                  buildMenuButton('Ebook', Icons.book_online),
-                ],
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'Profile',
               ),
             ],
-          ),
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.qr_code),
-            label: 'QR',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
+            currentIndex: value,
+            selectedItemColor: Colors.blue,
+            onTap: _onItemTapped,
+          );
+        },
       ),
     );
   }
