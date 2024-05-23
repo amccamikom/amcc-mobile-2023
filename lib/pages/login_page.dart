@@ -100,8 +100,8 @@ class _LoginPageState extends State<LoginPage> {
           ),
           ElevatedButton(
               onPressed: () {
-                if (_nimController.text == '22114970' &&
-                    _passwordController.text == 'kentutberdahak') {
+                if (_nimController.text == '1' &&
+                    _passwordController.text == '1') {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => HomePage()),
