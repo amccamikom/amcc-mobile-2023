@@ -6,26 +6,44 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String username = 'User123'; // Ganti dengan username yang sesuai
-
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
+      backgroundColor: backgroundColor2,
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           children: [
-            CircleAvatar(
-              backgroundImage: AssetImage('assets/profile.jpg'), // Ganti dengan path foto profil yang sesuai
-            ),
-            const SizedBox(width: 10),
-            Text('halo, $username'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Image.asset('assets/ic_profile.png'),
+                const SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  'Halo,\nDifa Dlyaulhaq',
+                  style: blackTextStyle.copyWith(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                const Row(
+                  children: [
+                    Icon(
+                      Icons.search,
+                      size: 32,
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Icon(
+                      Icons.notifications,
+                      size: 32,
+                    ),
+                  ],
+                )
+              ],
+            )
           ],
-        ),
-      ),
-      body: Center(
-        child: ValueListenableBuilder<int>(
-          valueListenable: _selectedIndexNotifier,
-          builder: (context, value, child) {
-            return _widgetOptions.elementAt(value);
-          },
         ),
       ),
       bottomNavigationBar: ValueListenableBuilder<int>(
