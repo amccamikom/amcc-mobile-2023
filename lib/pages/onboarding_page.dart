@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:libraryplus/pages/login_page.dart';
 import 'package:libraryplus/pages/splash_page.dart';
 import 'package:libraryplus/theme.dart';
 
@@ -58,7 +59,7 @@ class onBoarding extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SplashPage()),
+                      MaterialPageRoute(builder: (context) => LoginPage()),
                     );
                   },
                   child: Text(
