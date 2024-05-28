@@ -1,12 +1,18 @@
+import 'package:libraryplus/pages/profilePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:libraryplus/theme.dart';
 import 'package:libraryplus/widgets/home_book_items.dart';
 import 'package:libraryplus/widgets/home_menu_items.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -32,13 +38,18 @@ class HomePage extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Container(
-                            width: 40,
-                            height: 40,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                image: AssetImage('assets/ic_profile.png'),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Profilepage()));
+                            },
+                            child: Container(
+                              width: 40,
+                              height: 40,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  image: AssetImage('assets/ic_profile.png'),
+                                ),
                               ),
                             ),
                           ),
@@ -57,7 +68,7 @@ class HomePage extends StatelessWidget {
                                 width: 2,
                               ),
                               Text(
-                                'Difa',
+                                'Ricki',
                                 style: whiteTextStyle.copyWith(
                                   fontSize: 16,
                                   fontWeight: semiBold,
