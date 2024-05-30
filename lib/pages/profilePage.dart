@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:libraryplus/theme.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Profilepage extends StatelessWidget {
   const Profilepage({super.key});
@@ -133,6 +134,40 @@ class Profilepage extends StatelessWidget {
                       size: 20,
                     )
                   ],
+                ),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              GestureDetector(
+                onTap: () async {
+                  final Uri url = Uri.parse('https://rc.amikom.ac.id/');
+                  if (await canLaunchUrl(url)) {
+                    await launchUrl(url);
+                  } else {
+                    throw 'Could not launch $url';
+                  }
+                },
+                child: SizedBox(
+                  height: 40,
+                  width: 350,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Icon(
+                        Icons.web,
+                        size: 26,
+                      ),
+                      SizedBox(width: 8),
+                      Text('Kunjungi website kami',
+                          style: blackTextStyle.copyWith(fontSize: 18)),
+                      Spacer(),
+                      const Icon(
+                        Icons.arrow_forward_ios,
+                        size: 20,
+                      )
+                    ],
+                  ),
                 ),
               ),
               Padding(
