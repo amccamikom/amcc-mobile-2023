@@ -1,5 +1,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.libraryplus">
+
+   <uses-permission android:name="android.permission.INTERNET"/>
+
+    <queries>
+    <!-- If your application checks for inAppBrowserView launch mode support -->
+    <intent>
+        <action android:name="android.support.customtabs.action.CustomTabsService" />
+    </intent>
+    </queries>
+
    <application
         android:label="libraryplus"
         android:name="${applicationName}"

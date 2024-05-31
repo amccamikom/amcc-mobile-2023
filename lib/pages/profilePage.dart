@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:libraryplus/pages/home_page.dart';
 import 'package:libraryplus/theme.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -143,9 +144,12 @@ class Profilepage extends StatelessWidget {
                 onTap: () async {
                   final Uri url = Uri.parse('https://rc.amikom.ac.id/');
                   if (await canLaunchUrl(url)) {
-                    await launchUrl(url);
+                    await launchUrl(
+                      url,
+                      mode: LaunchMode.externalApplication,
+                    );
                   } else {
-                    throw 'Could not launch $url';
+                    throw 'Cannot launch $url';
                   }
                 },
                 child: SizedBox(
@@ -169,6 +173,9 @@ class Profilepage extends StatelessWidget {
                     ],
                   ),
                 ),
+              ),
+              const SizedBox(
+                height: 40,
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 60),

@@ -13,6 +13,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final ValueNotifier<int> _selectedIndexNotifier = ValueNotifier<int>(0);
+
+  void _onItemTapped(int index) {
+    if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Profilepage()),
+      );
+    } else {
+      _selectedIndexNotifier.value = index;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -40,7 +53,10 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => Profilepage()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Profilepage()));
                             },
                             child: Container(
                               width: 40,
@@ -268,7 +284,6 @@ class _HomePageState extends State<HomePage> {
               BottomNavigationBarItem(
                 icon: Icon(Icons.person),
                 label: 'Profile',
-                
               ),
             ],
             selectedLabelStyle: blackTextStyle.copyWith(
@@ -288,10 +303,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-}
-
-final ValueNotifier<int> _selectedIndexNotifier = ValueNotifier<int>(0);
-
-void _onItemTapped(int index) {
-  _selectedIndexNotifier.value = index;
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:libraryplus/pages/home_page.dart';
 import 'package:libraryplus/pages/onboarding_page.dart';
 import 'package:libraryplus/pages/splash_page.dart';
 
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const SplashPage(),
         '/onboarding': (context) => const onBoarding(),
+        '/homepage': (context) => const HomePage(),
       },
     );
   }
